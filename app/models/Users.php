@@ -6,35 +6,35 @@ use Phalcon\Security;
 
 class Users extends Model
 {
-    public $username;
-    public $password;
+    protected $username;
+    protected $password;
 
     public function initialize()
     {
         $this->setSource('users');
     }
 
-//    public function getUsername()
-//    {
-//        return $this->username;
-//    }
-//
-//    public function setUsername($username)
-//    {
-//        $this->username = $username;
-//        return $this;
-//    }
-//
-//    public function getPassword()
-//    {
-//        return $this->password;
-//    }
-//
-//    public function setPassword($password)
-//    {
-//        $this->username = $password;
-//        return $this;
-//    }
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+        return $this;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function setPassword($password)
+    {
+        $this->username = $password;
+        return $this;
+    }
 
     public function addUser($username, $password)
     {
