@@ -8,6 +8,7 @@ use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
+use Phalcon\Mvc\Url;
 
 /**
  * Shared configuration service
@@ -130,3 +131,14 @@ $di->setShared('dispatcher', function () {
 
     return $dispatcher;
 });
+
+$di->setShared(
+    'url',
+    function () {
+        $url = new Url();
+
+        $url->setBaseUri('/');
+
+        return $url;
+    }
+);

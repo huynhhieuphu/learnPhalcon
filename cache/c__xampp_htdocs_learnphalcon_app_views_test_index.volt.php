@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <?= $this->partial('partials/header_view') ?>
+    <?= $this->partial('shared/header_view') ?>
 </head>
 <body>
 <div class="container-fluid">
@@ -13,11 +13,12 @@
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" class="form-control" id="username" name="username">
-                <span class="text-danger" id="errUsername"></span>
+                <span class="text-danger" id="errUser"></span>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" class="form-control" id="password" name="password">
+                <span class="text-danger" id="errPass"></span>
             </div>
             <button type="submit" class="btn btn-primary" id="btnSignIn">Sign in</button>
             <a href="/test/register">Register</a>
@@ -27,7 +28,7 @@
 
 </div>
 
-<?= $this->partial('partials/fooder_view') ?>
+<?= $this->partial('shared/fooder_view') ?>
 
 <!-- jQuery first, then Popper.js, and then Bootstrap's JavaScript -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -40,21 +41,32 @@
                 let username = $('#username').val().trim();
                 let password = $('#password').val().trim();
 
-                let flagUsername = true;
+                let flagUse = true;
+                let flagPass = true;
 
                 if(username == '' || username == null){
-                    $('#errUsername').text( 'Vui long khong de trong');
-                    flag = false;
+                    $('#errUser').text( 'Vui long khong de trong');
+                    flagUse = false;
                 }else if(username.length < 3){
-                    $('#errUsername').text('Do dai toi thieu 3 ky tu');
-                    flag = false;
+                    $('#errUser').text('Do dai toi thieu 3 ky tu');
+                    flagUse = false;
                 }else if(username.length > 60){
-                    $('#errUsername').text('Do dai toi da 60 ky tu');
-                    flag = false;
+                    $('#errUser').text('Do dai toi da 60 ky tu');
+                    flagUse = false;
                 }
 
-                if(flag){
-                    $('#errUsername').text('');
+                if(password == '' || password == null){
+                    $('#errPass').text( 'Vui long khong de trong');
+                    flagPass = false;
+                }else if(password.length < 3){
+                    $('#errPass').text('Do dai toi thieu 3 ky tu');
+                    flagPass = false;
+                }
+
+                if(flagUse && flagPass){
+                    $('#errUser').text('');
+                    $('#errPass').text('');
+
                     $('#btnSignIn').submit();
                 }else{
                     e.preventDefault();

@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <?php if(!empty($loginMsg)): ?>
+            <div class="alert alert-danger"><?= $loginMsg ?></div>
+        <?php endif; ?>
+
+        <h1 class="text-center">Register</h1>
+
+        <form action="/test/add" method="POST" class="border p-4">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" value="<?= $_POST['username'] ?? '' ?>">
+                <?php if(!empty($valiUser)): ?>
+                    <span class="text-danger" id="errUser"><?= $valiUser ?></span>
+                <?php endif; ?>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password">
+                <?php if(!empty($valiPass)): ?>
+                    <span class="text-danger" id="errPass"><?= $valiPass ?></span>
+                <?php endif; ?>
+            </div>
+            <button type="submit" class="btn btn-primary" id="btnRegister">Submit</button>
+            <a href="/test/index">Sign in</a>
+        </form>
+
+    </div>
+</div>
+
+

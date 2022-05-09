@@ -1,0 +1,47 @@
+<div class="row mt-3">
+    <div class="col-md-4 offset-md-4">
+        <?php if(!empty($loginMsg)): ?>
+            <div class="alert alert-danger"><?= $loginMsg ?></div>
+        <?php endif; ?>
+
+        <h1 class="text-center">Sign in</h1>
+        <form action="/test/login" method="POST" class="border p-4" id="formSignin">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" value="<?= $_POST['username'] ?? '' ?>">
+                <span class="text-danger" id="errUser"><?= $valiUser ?></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password">
+                <span class="text-danger" id="errPass"><?= $valiPass ?></span>
+            </div>
+            <button type="submit" class="btn btn-primary" id="btnSignIn">Sign in</button>
+            <a href="/test/register">Register</a>
+        </form>
+    </div>
+</div>
+
+<script>
+    // commands.push(function() {
+    //     $('#btnSignIn').on('click', function(){
+    //         let user = $('#username').val().trim();
+    //         let pass = $('#password').val().trim();
+    //
+    //         if(user == ''){
+    //             $('#errUser').text('Vui long nhap username');
+    //         }else{
+    //             $('#errUser').text('');
+    //         }
+    //
+    //         if(pass == ''){
+    //             $('#errPass').text('Vui long nhap password');
+    //             return false;
+    //         }else{
+    //             $('#errPass').text('');
+    //         }
+    //
+    //         $('#formSignin').submit();
+    //     })
+    // });
+</script>
