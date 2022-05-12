@@ -1,0 +1,50 @@
+<div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-header">
+                <a href="/categories" class="btn btn-secondary">Back</a>
+            </div>
+            <div class="card-body">
+                <form action="/categories/edit" method="post">
+                    <div class="form-group">
+                        <label for="name">Category</label>
+                        <input type="text" class="form-control" name="name" value="<?= $_POST['name'] ?? '' ?>">
+                        <?php if (!empty($errName)): ?>
+                            <span class="text-danger"><?= $errName ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="parent_id">Parent ID</label>
+                        <select name="parent_id" id="parent_id" class="form-control">
+                            <option value="">--- Choose Please ---</option>
+                            <option value="0">Root</option>
+                            <?php if (!empty($select_cate)): ?>
+                                <?php foreach ($select_cate as $cate): ?>
+                                    <option value="<?= $cate['id'] ?>"><?= $cate['name'] ?></option>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </select>
+                        <?php if (!empty($errParentId)): ?>
+                            <span class="text-danger"><?= $errParentId ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status: </label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="status" id="statusY" value="Y" checked>
+                            <label class="form-check-label" for="statusY">Y</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="status" id="statusN" value="N">
+                            <label class="form-check-label" for="statusN">N</label>
+                        </div>
+                        <?php if (!empty($errStatus)): ?>
+                            <span class="text-danger"><?= $errStatus ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <button type="submit" class="btn btn-success" id="btnSubmit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

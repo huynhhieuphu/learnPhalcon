@@ -1,0 +1,49 @@
+<div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+        <?php if (!empty($msgCategories)): ?>
+            <div class="alert alert-success"><?= $msgCategories ?></div>
+        <?php endif; ?>
+
+        <?php if (!empty($msgCategoriesErr)): ?>
+            <div class="alert alert-danger"><?= $msgCategoriesErr ?></div>
+        <?php endif; ?>
+        <div class="card">
+            <div class="card-header">
+                <a href="/categories/create" class="btn btn-success">Add Categories</a>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Categories</th>
+                        <th>Root</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($categories as $category): ?>
+                    <tr>
+                        <td><?= $category['id'] ?></td>
+                        <td><?= $category['name'] ?></td>
+                        <td><?= $category['parent_id'] ?></td>
+                        <td>
+                            <?php if($category['status'] === 'Y'): ?>
+                                Active
+                            <?php else: ?>
+                                Inactive
+                            <?php endif; ?>
+                        </td>
+                        <td>
+                            <a href="/categories/delete/<?= $category['id'] ?>" class="btn btn-sm btn-danger">Delete</a>
+                            <a href="/categories/edit/<?= $category['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -69,7 +69,7 @@ class UsersController extends ControllerBase
                     }
                 }
             } else {
-                $this->response->redirect('found404');
+                die('fail');
             }
         }
     }

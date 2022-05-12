@@ -86,11 +86,15 @@ class TestController extends ControllerBase
                 $password = $this->request->getPost('password') ?? '';
                 $password = strip_tags($password);
 
-                $check = $this->user->checkLogin($username, $password);
+                $user = new Users();
+                $user->setUsername($username);
+                $user->setPassword($password);
+
+                $check = $user->checkLogin($username, $password);
 
                 if($check) {
                     //SESSION USER
-                    $this->session->set('username', $check['username']);
+                    $this->session->set('session_username', $user->getUsername());
 //                    $this->dispatcher->forward(['controller' => 'test','action' => 'dashboard']);
 
                     $this->response->redirect('/test/dashboard');
@@ -167,14 +171,14 @@ class TestController extends ControllerBase
 
                 $this->dispatcher->forward(['controller' => 'test', 'action' => 'register']);
             }else{
-                $username = $this->request->getPost('username') ?? '';
+                $username = $this->request->getPost('username');
                 $username = strip_tags($username);
 
-                $password = $this->request->getPost('password') ?? '';
+                $password = $this->request->getPost('password');
                 $password = strip_tags($password);
 
-                $this->user->username = $username;
-                $this->user->password = $this->security->hash($password);
+                $this->user->setUsername($username);
+                $this->user->setPassword($this->security->hash($password));
 
                 if(!$this->user->save()) {
                     $this->session->set('REGISTER_MESSAGE', 'Register Fail');
@@ -190,6 +194,8 @@ class TestController extends ControllerBase
 
     public function dashboardAction()
     {
+        $session_username = $this->session->get('session_username');
+
         $keyword = $this->request->get('keywords') ?? '';
 
         $users = Users::find([
@@ -198,6 +204,7 @@ class TestController extends ControllerBase
         ]);
 
         $this->view->users = $users->toArray();
+        $this->view->session_username = $session_username;
     }
 
     public function logoutAction()

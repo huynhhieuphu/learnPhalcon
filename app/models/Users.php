@@ -32,19 +32,8 @@ class Users extends Model
 
     public function setPassword($password)
     {
-        $this->username = $password;
+        $this->password = $password;
         return $this;
-    }
-
-    public function addUser($username, $password)
-    {
-        $user = new Users();
-        $security = new Security();
-
-        $user->username = $username;
-        $user->password = $security->hash($password);
-
-        return $user->save();
     }
 
     public function checkLogin($username, $password)
@@ -80,7 +69,7 @@ class Users extends Model
             $check = $security->checkHash($password, $user->password);
 
             if (true === $check) {
-                return $user->toArray();
+                return true;
             }
         }
         return false;
