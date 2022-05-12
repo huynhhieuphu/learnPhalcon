@@ -5,10 +5,11 @@
                 <a href="/categories" class="btn btn-secondary">Back</a>
             </div>
             <div class="card-body">
-                <form action="/categories/edit" method="post">
+                <form action="/categories/edit/<?= $category['id'] ?>" method="post">
+                    <input type="hidden" name="id" value="<?= $category['id'] ?>">
                     <div class="form-group">
                         <label for="name">Category</label>
-                        <input type="text" class="form-control" name="name" value="<?= $_POST['name'] ?? '' ?>">
+                        <input type="text" class="form-control" name="name" value="<?= $category['name'] ?>">
                         <?php if (!empty($errName)): ?>
                             <span class="text-danger"><?= $errName ?></span>
                         <?php endif; ?>
@@ -17,10 +18,14 @@
                         <label for="parent_id">Parent ID</label>
                         <select name="parent_id" id="parent_id" class="form-control">
                             <option value="">--- Choose Please ---</option>
-                            <option value="0">Root</option>
-                            <?php if (!empty($select_cate)): ?>
-                                <?php foreach ($select_cate as $cate): ?>
-                                    <option value="<?= $cate['id'] ?>"><?= $cate['name'] ?></option>
+                            <option value="0" <?= $category['parent_id'] == 0 ? 'selected' : '' ?>>Root</option>
+                            <?php if (!empty($select_categories)): ?>
+                                <?php foreach ($select_categories as $cate): ?>
+                                    <option value="<?= $cate['id'] ?>"
+                                        <?= $category['parent_id'] == $cate['id'] ? 'selected' : '' ?>
+                                    >
+                                        <?= $cate['name'] ?>
+                                    </option>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </select>
@@ -31,11 +36,11 @@
                     <div class="form-group">
                         <label for="status">Status: </label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="status" id="statusY" value="Y" checked>
+                            <input class="form-check-input" type="radio" name="status" id="statusY" value="Y" <?= $category['status'] == 'Y' ? 'checked' : '' ?>>
                             <label class="form-check-label" for="statusY">Y</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="status" id="statusN" value="N">
+                            <input class="form-check-input" type="radio" name="status" id="statusN" value="N" <?= $category['status'] == 'N' ? 'checked' : '' ?>>
                             <label class="form-check-label" for="statusN">N</label>
                         </div>
                         <?php if (!empty($errStatus)): ?>

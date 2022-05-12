@@ -23,8 +23,8 @@
                             <option value="0" <?= isset($cate_parent_id) && $cate_parent_id == 0 ?: '' ?>>
                                 Root
                             </option>
-                            <?php if (!empty($select_cate)): ?>
-                                <?php foreach ($select_cate as $cate): ?>
+                            <?php if (!empty($select_categories)): ?>
+                                <?php foreach ($select_categories as $cate): ?>
                                     <option value="<?= $cate['id'] ?>"
                                         <?= isset($cate_parent_id) && $cate_parent_id == $cate['id'] ? 'selected' : '' ?>>
                                         <?= $cate['name'] ?>

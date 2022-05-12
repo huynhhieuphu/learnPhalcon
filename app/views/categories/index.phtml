@@ -36,7 +36,7 @@
                             <?php endif; ?>
                         </td>
                         <td>
-                            <a href="/categories/delete/<?= $category['id'] ?>" class="btn btn-sm btn-danger">Delete</a>
+                            <a href="/categories/delete/<?= $category['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Ban co chac xoa');">Delete</a>
                             <a href="/categories/edit/<?= $category['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
                         </td>
                     </tr>
