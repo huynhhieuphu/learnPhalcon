@@ -20,12 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f7bfc4c-1166-4e5d-a621-a65fb70f8ce4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/controllers/ProductsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Products.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/validations/CreateProductPost.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/products/create.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/products/edit.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/products/index.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/loader.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/loader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CategoriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/categories/create.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/create.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/categories/edit.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/edit.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/categories/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/index.phtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,12 +88,12 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\learnPhalcon\app\views\partials" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\learnPhalcon\app\controllers" />
       <recent name="C:\xampp\htdocs\learnPhalcon\app\models" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\learnPhalcon\app\views\partials" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -116,7 +120,8 @@
       <workItem from="1652083014173" duration="6582000" />
       <workItem from="1652090740706" duration="33000" />
       <workItem from="1652145927092" duration="26332000" />
-      <workItem from="1652317062631" duration="10375000" />
+      <workItem from="1652317062631" duration="29397000" />
+      <workItem from="1652403403485" duration="2332000" />
     </task>
     <servers />
   </component>
@@ -180,25 +185,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1651815710249" />
-    <state x="739" y="334" key="NewPhpClassDialog" timestamp="1652155210855">
+    <state x="739" y="334" key="NewPhpClassDialog" timestamp="1652337666878">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="334" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1652155210855" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1652326247071">
+    <state x="739" y="334" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1652337666878" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1652337653398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1652326247071" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1652337653398" />
     <state x="400" y="128" key="SettingsEditor" timestamp="1652083084704">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="400" y="128" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1652083084704" />
+    <state x="567" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1652404508376">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="567" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1652404508376" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1652320026499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1652320026499" />
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1652318183401">
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1652329314427">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1652318183401" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1652329314427" />
   </component>
 </project>

@@ -23,4 +23,10 @@ $router->add('/categories/create', ['controller' => 'categories', 'action' => 'c
 $router->add('/categories/edit/:int', ['controller' => 'categories', 'action' => 'edit', 'id' => 1]); // edit -> form(view edit) + update
 $router->add('/categories/delete/:int', ['controller' => 'categories', 'action' => 'delete', 'id' => 1]); // delete -> delete
 
+//products
+$router->add('/products', ['controller' => 'products', 'action' => 'index']);
+$router->add('/products/create', ['controller' => 'products', 'action' => 'create']);
+$router->add('/products/edit/:int', ['controller' => 'products', 'action' => 'edit', 'id' => 1]);
+$router->add('/products/delete/:int', ['controller' => 'products', 'action' => 'delete', 'id' => 1]);
+
 $router->handle();

@@ -75,6 +75,9 @@ class CategoriesController extends ControllerBase
                 $category->setCategoryStatus($cate_status);
                 $category->setCategoryCreatedAt(time());// var_dump(date('Y-m-d H:i:s', time()));die;
 
+//                ECHO "<PRE>";
+//                var_dump($category->toArray());die;
+
                 if (!$category->save()) {
                     $message_create = 'insert fail';
                 } else {

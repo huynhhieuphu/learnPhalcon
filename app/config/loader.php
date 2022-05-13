@@ -9,7 +9,8 @@ $config = $di->getConfig();
 $loader->registerNamespaces(
     [
         'App\Controllers'    => $config->application->controllersDir,
-        'App\Models'         => $config->application->modelsDir
+        'App\Models'         => $config->application->modelsDir,
+        'App\Validations'    => APP_PATH . '/validations',
     ]
 );
 

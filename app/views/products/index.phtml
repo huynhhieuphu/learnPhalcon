@@ -1,0 +1,45 @@
+<div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+        <?php if(!empty($msgProductOk)): ?>
+            <div class="alert alert-success"><?= $msgProductOk ?></div>
+        <?php endif; ?>
+        <div class="card">
+            <div class="card-header">
+                <a href="/products/create" class="btn btn-success">Add Products</a>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($products as $product): ?>
+                            <tr>
+                                <td><?= $product['id'] ?></td>
+                                <td><?= $product['name'] ?></td>
+                                <td><?= $product['category_name'] ?></td>
+                                <td>
+                                    <?php if($product['status'] == 'Y'): ?>
+                                        Active
+                                    <?php else: ?>
+                                        Inactive
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <a href="/products/delete/<?= $product['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Ban co chac xoa');">Delete</a>
+                                    <a href="/products/edit/<?= $product['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
